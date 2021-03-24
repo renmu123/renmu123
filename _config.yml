@@ -4,9 +4,9 @@
 
 # Site
 title: 仁暮的博客
-subtitle: ""
-description: ""
-keywords:
+subtitle: "抽刀断水水更流，举杯消愁愁更愁"
+description: "记录技术与生活"
+keywords: 博客,js,html,css,blog,python,vue
 author: 仁暮
 language: zh-CN
 timezone: "Asia/Shanghai"
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
