@@ -20,31 +20,36 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="记录技术与生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="仁暮的博客">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="前言前几月折腾的时候就想着把自己一些重复的操作自动化，其中就包括动画的下载。 我自己一通思考，就想出了下面的技术方案，准备上班摸鱼空闲时写一下。    下载 aria2 并进行配置  配置好需要的 tracker  打开蜜柑计划抓取接口  利用 aria2 的接口实现下载  将下载的动画上传至 onedrive  家中 onedrive 设置自动同步  然后就开始愉快的观看了   之后发现 gay">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自动化追番">
+<meta property="og:url" content="http://example.com/2023/02/14/%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%BD%E7%95%AA/index.html">
 <meta property="og:site_name" content="仁暮的博客">
-<meta property="og:description" content="记录技术与生活">
+<meta property="og:description" content="前言前几月折腾的时候就想着把自己一些重复的操作自动化，其中就包括动画的下载。 我自己一通思考，就想出了下面的技术方案，准备上班摸鱼空闲时写一下。    下载 aria2 并进行配置  配置好需要的 tracker  打开蜜柑计划抓取接口  利用 aria2 的接口实现下载  将下载的动画上传至 onedrive  家中 onedrive 设置自动同步  然后就开始愉快的观看了   之后发现 gay">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/BGmi/BGmi/raw/master/images/bgmi_cli.png?raw=true">
+<meta property="og:image" content="https://github.com/BGmi/BGmi/raw/master/images/bgmi_http.png?raw=true">
+<meta property="article:published_time" content="2023-02-14T07:55:47.840Z">
+<meta property="article:modified_time" content="2023-02-14T07:55:47.840Z">
 <meta property="article:author" content="仁暮">
 <meta property="article:tag" content="博客,js,html,css,blog,python,vue">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/BGmi/BGmi/raw/master/images/bgmi_cli.png?raw=true">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2023/02/14/%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%BD%E7%95%AA/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>仁暮的博客</title>
+  <title>自动化追番 | 仁暮的博客</title>
   
 
 
@@ -177,76 +182,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/14/%E5%9D%97%E7%BA%A7&%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="仁暮">
-      <meta itemprop="description" content="记录技术与生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="仁暮的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/02/14/%E5%9D%97%E7%BA%A7&%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0/" class="post-title-link" itemprop="url">块级&行内元素</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-02-14 15:55:47" itemprop="dateCreated datePublished" datetime="2023-02-14T15:55:47+08:00">2023-02-14</time>
-            </span>
-
-          
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><p>HTML4中，元素被分成两大类: inline(内联元素)与block(块级元素)。但在实际的开发过程中，因为页面表现的需要，前端工程师经常把inline元素的display值设定为block(比如a标签)，也经常把block元素的display值设定为inline；之后更是出现了inline-block这一对外呈现inline、对内呈现block的属性。因此，简单地把HTML元素划分为inline与block已经不再符合实际需求。</p>
-<p>基于这种考虑，在HTML5中，标准制定者重新定义了HTML元素的分类，并根据这一新的分类定义了元素的内容模型(Content Model) – 对于一个元素而言，哪些子元素是合法的，而哪些子元素是非法的。</p>
-<p>但是还是列一下出来，这个概念比HTML5中的分类容易理解得多。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/02/14/%E5%9D%97%E7%BA%A7&%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -262,10 +201,9 @@
       <meta itemprop="name" content="仁暮的博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/02/14/%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%BD%E7%95%AA/" class="post-title-link" itemprop="url">自动化追番</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          自动化追番
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -278,6 +216,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -288,7 +233,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前几月折腾的时候就想着把自己一些重复的操作自动化，其中就包括动画的下载。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前几月折腾的时候就想着把自己一些重复的操作自动化，其中就包括动画的下载。</p>
 <p>我自己一通思考，就想出了下面的技术方案，准备<del>上班摸鱼</del>空闲时写一下。</p>
 <blockquote>
 <ul>
@@ -331,243 +276,50 @@
 <li><a target="_blank" rel="noopener" href="https://github.com/BGmi/BGmi">https://github.com/BGmi/BGmi</a></li>
 </ol>
 
-      
     </div>
 
     
     
     
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/08/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%85%E5%A4%87%E7%9A%84Obsidian%E6%8F%92%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="仁暮">
-      <meta itemprop="description" content="记录技术与生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="仁暮的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/08/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%85%E5%A4%87%E7%9A%84Obsidian%E6%8F%92%E4%BB%B6/" class="post-title-link" itemprop="url">程序员必备的Obsidian插件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-08 11:40:41" itemprop="dateCreated datePublished" datetime="2021-05-08T11:40:41+08:00">2021-05-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-14 15:55:47" itemprop="dateModified" datetime="2023-02-14T15:55:47+08:00">2023-02-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>我介绍一个程序员使用 Obsidian 来进行写作所必要的插件以及使用方法。<br>其中在我进行写作的时候发现有几个流程不是很顺畅，也自己尝试创建了项目，以及对一些项目进行了 PR。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/08/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%85%E5%A4%87%E7%9A%84Obsidian%E6%8F%92%E4%BB%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>仁暮
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2023/02/14/%E8%87%AA%E5%8A%A8%E5%8C%96%E8%BF%BD%E7%95%AA/" title="自动化追番">http://example.com/2023/02/14/自动化追番/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/06/2-%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="仁暮">
-      <meta itemprop="description" content="记录技术与生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="仁暮的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/06/2-%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/" class="post-title-link" itemprop="url">Obsidian开发教程-2.编译运行</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-06 13:54:29" itemprop="dateCreated datePublished" datetime="2021-05-06T13:54:29+08:00">2021-05-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-14 15:55:47" itemprop="dateModified" datetime="2023-02-14T15:55:47+08:00">2023-02-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="如何使用官方模板"><a href="#如何使用官方模板" class="headerlink" title="如何使用官方模板"></a>如何使用官方模板</h1><p>点击 <a target="_blank" rel="noopener" href="https://github.com/obsidianmd/obsidian-sample-plugin">obsidian-sample-plugin</a><br><img src="https://person-pic-1253385403.cos.ap-shanghai.myqcloud.com/img/20210430113717.png"><br><img src="https://person-pic-1253385403.cos.ap-shanghai.myqcloud.com/img/20210430113751.png"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/06/2-%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/06/1-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="仁暮">
-      <meta itemprop="description" content="记录技术与生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="仁暮的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/06/1-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" class="post-title-link" itemprop="url">Obsidian开发教程-1.开发环境准备</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-06 13:52:41" itemprop="dateCreated datePublished" datetime="2021-05-06T13:52:41+08:00">2021-05-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-02-14 15:55:47" itemprop="dateModified" datetime="2023-02-14T15:55:47+08:00">2023-02-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>首先说一下为什么要写这个教程？</p>
-<ol>
-<li>为自己的开发做个备份，以防太久没开发，忘了</li>
-<li>为国内 Obsidian 插件开发就一些小工作</li>
-</ol>
-<p>首先这个教程是面向完全新手的，可能会有些啰嗦，其中的安装使用仅限于 Windows10，如果遇到网络问题，请自行解决。<br>其次，这个教程也不会面面俱到，主要是不会涉及到 <code>js</code> 和 <code>ts</code> 有关的内容，因为知识点实在太多，我这里只会推荐一些学习资源。</p>
-<p>如果有任何问题，可以在 <a target="_blank" rel="noopener" href="https://github.com/renmu123/renmu123.github.io">https://github.com/renmu123/renmu123.github.io</a> 中开 issue 进行反馈。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/06/1-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/08/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%85%E5%A4%87%E7%9A%84Obsidian%E6%8F%92%E4%BB%B6/" rel="prev" title="程序员必备的Obsidian插件">
+      <i class="fa fa-chevron-left"></i> 程序员必备的Obsidian插件
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/02/14/%E5%9D%97%E7%BA%A7&%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0/" rel="next" title="块级&行内元素">
+      块级&行内元素 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -620,6 +372,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
