@@ -206,10 +206,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-17 14:00:00 / 修改时间：14:00:59" itemprop="dateCreated datePublished" datetime="2023-03-17T14:00:00+08:00">2023-03-17</time>
+              <time title="创建时间：2023-03-17 14:00:00" itemprop="dateCreated datePublished" datetime="2023-03-17T14:00:00+08:00">2023-03-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-20 18:12:30" itemprop="dateModified" datetime="2023-03-20T18:12:30+08:00">2023-03-20</time>
+              </span>
 
           
 
@@ -223,56 +229,14 @@
 
       
           <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在看雪糕麻麻的直播，沉迷在围棋教学中<del>一声声宝宝中</del>。<br>雪糕麻麻这么可爱，我肯定要狠狠的切片，想切片首先得有录播，其他人传的录播可能会存在几个问题令我不是很满意：</p>
-<ol>
-<li>没有弹幕</li>
-<li>有弹幕但是没有 sc</li>
-<li>有 sc 但是显示效果不佳</li>
-</ol>
-<p>录播大致分为几种：</p>
-<ol>
-<li>没有弹幕的，这种最为简单，随便找个录播软件都能处理。</li>
-<li>有弹幕的，采用直接录屏，这种录出来的视频质量不会非常好，而且不容易进行自动化。</li>
-<li>将弹幕和视频流分别进行处理，之后再将弹幕硬编码到视频中。</li>
-</ol>
-<p>调研完就要根据需求寻找对应的工具了。</p>
-<ol>
-<li>录屏工具，支持保存视频流和弹幕流</li>
-<li>支持将 b 站 xml 弹幕流文件转换为通用 ass 文件的工具</li>
-<li><del>在里面加点私货</del></li>
-<li>硬编码工具</li>
-</ol>
-<p>接下来就是各个流程以及工具的介绍了，不关注<a target="_blank" rel="noopener" href="https://live.bilibili.com/27183290">雪糕麻麻</a>就不准你看下去了！！！</p>
-<h1 id="录屏工具"><a href="#录屏工具" class="headerlink" title="录屏工具"></a>录屏工具</h1><p><del>谷歌搜索 b 站录播 第一个选项</del><br>b 站录播工具我推荐 <a target="_blank" rel="noopener" href="https://rec.danmuji.org/">B 站录播姬</a> ，我试用下来完美符合我的第一个要求，还有 GUI 版本，舒服。<br>如果你想录制 sc，记得在设置里把相关的设置打开。</p>
-<h1 id="转换工具"><a href="#转换工具" class="headerlink" title="转换工具"></a>转换工具</h1><p>转换工具我推荐使用 <a target="_blank" rel="noopener" href="https://github.com/hihkm/DanmakuFactory">DanmakuFactory</a> 支持转换 sc，以及支持 cli 调用，方便打造进一步的工作流。<br>这里我给出我的转换脚本，只要将弹幕文件拖动到 bat 文件即可进行自动转换。<br>将下载获取的<code>cli</code>文件重命名为<code>DanmakuFactory.exe</code>并加入环境变量。</p>
-<p>这里我修改了弹幕的字体大小以及透明度，将以下代码保存成 <code>bat</code> 文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">setlocal</span><br><span class="line">echo %cd%</span><br><span class="line">REM 获取文件的完整路径</span><br><span class="line">set &quot;FILE_PATH=%~1&quot;</span><br><span class="line"></span><br><span class="line">REM 获取文件的basename</span><br><span class="line">for %%i in (&quot;%FILE_PATH%&quot;) do set &quot;BASENAME=%%~ni&quot;</span><br><span class="line"></span><br><span class="line">DanmakuFactory.exe -o &quot;%BASENAME%.ass&quot; -i &quot;%FILE_PATH%&quot; --showmsgbox true -S 30 -O 150</span><br><span class="line"></span><br><span class="line">pause</span><br><span class="line"></span><br><span class="line">endlocal</span><br></pre></td></tr></table></figure>
-
-<h1 id="私货时间"><a href="#私货时间" class="headerlink" title="私货时间"></a>私货时间</h1><p>说叫私货时间其实也没有那么私货，只是 <a target="_blank" rel="noopener" href="https://github.com/hihkm/DanmakuFactory">DanmakuFactory</a> 转换 sc 后生成的 ass 文件我不满意，出现后只有等其余 sc 将其顶出屏幕，期间会遮掉很大一部分屏幕，我写了一个<a target="_blank" rel="noopener" href="https://github.com/renmu123/ass-convert">脚本</a>支持修改 sc 弹幕的持续时间，使其减少对内容的影响。<br><del>如果这个<a target="_blank" rel="noopener" href="https://github.com/hihkm/DanmakuFactory/issues/25">issue</a> 修复可能就不需要我的脚本了</del></p>
-<p>之后准备增加一些功能：</p>
-<ol>
-<li>自动嵌入某条弹幕，比如大屏红字<del>雪糕麻麻是我的</del></li>
-<li>增加 sc 的出现消失的过渡效果</li>
-</ol>
-<p>我们再修改一下自动化脚本，你需要下载对应平台的 cli 工具，并加到环境变量中</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">setlocal</span><br><span class="line">echo %cd%</span><br><span class="line">REM 获取文件的完整路径</span><br><span class="line">set &quot;FILE_PATH=%~1&quot;</span><br><span class="line"></span><br><span class="line">REM 获取文件的basename</span><br><span class="line">for %%i in (&quot;%FILE_PATH%&quot;) do set &quot;BASENAME=%%~ni&quot;</span><br><span class="line"></span><br><span class="line">DanmakuFactory.exe -o &quot;%BASENAME%.ass&quot; -i &quot;%FILE_PATH%&quot; --showmsgbox true -S 30 -O 150</span><br><span class="line">REM 增加了这一行</span><br><span class="line">ass-convert-win.exe -i &quot;%BASENAME%.ass&quot; -r</span><br><span class="line"></span><br><span class="line">pause</span><br><span class="line"></span><br><span class="line">endlocal</span><br></pre></td></tr></table></figure>
-
-<h1 id="压制工具"><a href="#压制工具" class="headerlink" title="压制工具"></a>压制工具</h1><p>万物视频压制大多基于<a target="_blank" rel="noopener" href="https://ffmpeg.org/download.html">ffmpeg</a>，我们也是用这个工具来实现视频字幕的硬编码，一行就可以解决了<br>我们来一个一个参数解析一下这个命令<del>我也是初学者</del><br><code>ffmpeg -i example.flv -vf &quot;subtitles=example.ass&quot; -c:v libx264 -c:a copy example.mp4</code></p>
-<ol>
-<li>首先 <code>-i example.flv</code> 参数代表输入文件名称是<code>example.flv</code>， <code>-i</code> 是指<code>input</code></li>
-<li>其次 <code>-vf subtitles=example.ass</code> 参数代表对视频进行处理，这里指得是加上了字幕文件</li>
-<li>然后 <code>-c:v libx264</code> 是指定编码器使用<code>libx264</code>，这个编码器会使用 cpu 进行编码</li>
-<li><code>-c:a copy</code> 是指音频流从原始文件中进行复制，不进行额外处理</li>
-<li>最后是输出文件的名称</li>
-</ol>
-<p>最后我们再来优化一下之前的脚本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">setlocal</span><br><span class="line"></span><br><span class="line">REM 获取文件的完整路径</span><br><span class="line">set &quot;FILE_PATH=%~1&quot;</span><br><span class="line"></span><br><span class="line">REM 获取文件的basename</span><br><span class="line">for %%i in (&quot;%FILE_PATH%&quot;) do set &quot;BASENAME=%%~ni&quot;</span><br><span class="line"></span><br><span class="line">DanmakuFactory.exe -o &quot;%BASENAME%.ass&quot; -i &quot;%BASENAME%.xml&quot; --ignore-warnings --showmsgbox true -S 30 -O 150</span><br><span class="line">ass-convert-win.exe -i &quot;%BASENAME%.ass&quot; -r</span><br><span class="line">ffmpeg -i %BASENAME%.flv -vf &quot;subtitles=%BASENAME%.ass&quot; -c:v libx264 -c:a copy %BASENAME%.mp4</span><br><span class="line"></span><br><span class="line">pause</span><br><span class="line"></span><br><span class="line">endlocal</span><br></pre></td></tr></table></figure>
-
-<p>现在我们的脚本已经可以做到将一个录播视频拖动到 bat 文件中，自动转换出 ass 文件以及压制后的视频文件。</p>
-<h2 id="增强"><a href="#增强" class="headerlink" title="增强"></a>增强</h2><p>单纯使用 cpu 来进行重编码，效率会比较低下，以及影响到正常的录播功能，接下来我们尝试使用<code>intel</code>的核显来进行编码，效率会略有上升。<br>首先你的核显需要支持<code>qsv</code>功能，查看此<a target="_blank" rel="noopener" href="https://www.intel.cn/content/www/cn/zh/support/articles/000029338/graphics.html">页面</a>进行检查<br>之后需要安装最新版的驱动，可以在 intel 的<a target="_blank" rel="noopener" href="https://www.intel.cn/content/www/cn/zh/download-center/home.html">官网</a>中搜索你的型号获取安装。<br>之后将<code>ffmpeg</code>这行代码修改为<code>ffmpeg -i %BASENAME%.flv -vf &quot;subtitles=%BASENAME%.ass&quot; -c:v h264_qsv -c:a copy %BASENAME%.mp4 -y -hwaccel qsv</code>。</p>
-<p>如果你有老黄的显卡，也可以使用 cuda 来进行加速，下次再折腾吧。</p>
-<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p>cpu 编码<br><img src="https://person-pic-1253385403.cos.ap-shanghai.myqcloud.com/img/Pasted%20image%2020230317105953.png" alt="cpu编码"></p>
-<p>核显编码<br><img src="https://person-pic-1253385403.cos.ap-shanghai.myqcloud.com/img/Pasted%20image%2020230317105958.png" alt="intel核显编码"></p>
-<h1 id="自动上传"><a href="#自动上传" class="headerlink" title="自动上传"></a>自动上传</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/17/%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E5%BD%95%E6%92%AD%E5%B7%A5%E4%BD%9C%E6%B5%81/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -322,7 +286,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-17 14:00:59" itemprop="dateModified" datetime="2023-03-17T14:00:59+08:00">2023-03-17</time>
+                <time title="修改时间：2023-03-20 18:12:30" itemprop="dateModified" datetime="2023-03-20T18:12:30+08:00">2023-03-20</time>
               </span>
 
           
@@ -395,7 +359,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-17 14:00:59" itemprop="dateModified" datetime="2023-03-17T14:00:59+08:00">2023-03-17</time>
+                <time title="修改时间：2023-03-20 18:12:30" itemprop="dateModified" datetime="2023-03-20T18:12:30+08:00">2023-03-20</time>
               </span>
 
           
@@ -469,7 +433,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-17 14:00:59" itemprop="dateModified" datetime="2023-03-17T14:00:59+08:00">2023-03-17</time>
+                <time title="修改时间：2023-03-20 18:12:30" itemprop="dateModified" datetime="2023-03-20T18:12:30+08:00">2023-03-20</time>
               </span>
 
           
@@ -541,7 +505,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-17 14:00:59" itemprop="dateModified" datetime="2023-03-17T14:00:59+08:00">2023-03-17</time>
+                <time title="修改时间：2023-03-20 18:12:30" itemprop="dateModified" datetime="2023-03-20T18:12:30+08:00">2023-03-20</time>
               </span>
 
           
@@ -613,7 +577,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-17 14:00:59" itemprop="dateModified" datetime="2023-03-17T14:00:59+08:00">2023-03-17</time>
+                <time title="修改时间：2023-03-20 18:12:30" itemprop="dateModified" datetime="2023-03-20T18:12:30+08:00">2023-03-20</time>
               </span>
 
           

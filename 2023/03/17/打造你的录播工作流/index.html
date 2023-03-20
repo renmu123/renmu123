@@ -20,17 +20,17 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="前言最近在看雪糕麻麻的直播，沉迷在围棋教学中一声声宝宝中。雪糕麻麻这么可爱，我肯定要狠狠的切片，想切片首先得有录播，其他人传的录播可能会存在几个问题令我不是很满意：  没有弹幕 有弹幕但是没有 sc 有 sc 但是显示效果不佳  录播大致分为几种：  没有弹幕的，这种最为简单，随便找个录播软件都能处理。 有弹幕的，采用直接录屏，这种录出来的视频质量不会非常好，而且不容易进行自动化。 将弹幕和视频流">
+  <meta name="description" content="前言最近在看雪糕麻麻的直播，沉迷在围棋教学中一声声宝宝中。雪糕麻麻这么可爱，我肯定要狠狠的切片，想切片首先得有录播，其他人传的录播可能会存在几个问题令我不是很满意：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="打造你的录播工作流">
 <meta property="og:url" content="http://example.com/2023/03/17/%E6%89%93%E9%80%A0%E4%BD%A0%E7%9A%84%E5%BD%95%E6%92%AD%E5%B7%A5%E4%BD%9C%E6%B5%81/index.html">
 <meta property="og:site_name" content="仁暮的博客">
-<meta property="og:description" content="前言最近在看雪糕麻麻的直播，沉迷在围棋教学中一声声宝宝中。雪糕麻麻这么可爱，我肯定要狠狠的切片，想切片首先得有录播，其他人传的录播可能会存在几个问题令我不是很满意：  没有弹幕 有弹幕但是没有 sc 有 sc 但是显示效果不佳  录播大致分为几种：  没有弹幕的，这种最为简单，随便找个录播软件都能处理。 有弹幕的，采用直接录屏，这种录出来的视频质量不会非常好，而且不容易进行自动化。 将弹幕和视频流">
+<meta property="og:description" content="前言最近在看雪糕麻麻的直播，沉迷在围棋教学中一声声宝宝中。雪糕麻麻这么可爱，我肯定要狠狠的切片，想切片首先得有录播，其他人传的录播可能会存在几个问题令我不是很满意：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://person-pic-1253385403.cos.ap-shanghai.myqcloud.com/img/Pasted%20image%2020230317105953.png">
 <meta property="og:image" content="https://person-pic-1253385403.cos.ap-shanghai.myqcloud.com/img/Pasted%20image%2020230317105958.png">
 <meta property="article:published_time" content="2023-03-17T06:00:00.000Z">
-<meta property="article:modified_time" content="2023-03-17T06:00:59.788Z">
+<meta property="article:modified_time" content="2023-03-20T10:12:30.711Z">
 <meta property="article:author" content="仁暮">
 <meta property="article:tag" content="博客,js,html,css,blog,python,vue">
 <meta name="twitter:card" content="summary">
@@ -211,10 +211,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-17 14:00:00 / 修改时间：14:00:59" itemprop="dateCreated datePublished" datetime="2023-03-17T14:00:00+08:00">2023-03-17</time>
+              <time title="创建时间：2023-03-17 14:00:00" itemprop="dateCreated datePublished" datetime="2023-03-17T14:00:00+08:00">2023-03-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-20 18:12:30" itemprop="dateModified" datetime="2023-03-20T18:12:30+08:00">2023-03-20</time>
+              </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -235,10 +241,13 @@
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在看雪糕麻麻的直播，沉迷在围棋教学中<del>一声声宝宝中</del>。<br>雪糕麻麻这么可爱，我肯定要狠狠的切片，想切片首先得有录播，其他人传的录播可能会存在几个问题令我不是很满意：</p>
+<span id="more"></span>
+
 <ol>
 <li>没有弹幕</li>
 <li>有弹幕但是没有 sc</li>
 <li>有 sc 但是显示效果不佳</li>
+<li>快速切带有弹幕的片段</li>
 </ol>
 <p>录播大致分为几种：</p>
 <ol>
@@ -259,14 +268,14 @@
 <p>这里我修改了弹幕的字体大小以及透明度，将以下代码保存成 <code>bat</code> 文件：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">setlocal</span><br><span class="line">echo %cd%</span><br><span class="line">REM 获取文件的完整路径</span><br><span class="line">set &quot;FILE_PATH=%~1&quot;</span><br><span class="line"></span><br><span class="line">REM 获取文件的basename</span><br><span class="line">for %%i in (&quot;%FILE_PATH%&quot;) do set &quot;BASENAME=%%~ni&quot;</span><br><span class="line"></span><br><span class="line">DanmakuFactory.exe -o &quot;%BASENAME%.ass&quot; -i &quot;%FILE_PATH%&quot; --showmsgbox true -S 30 -O 150</span><br><span class="line"></span><br><span class="line">pause</span><br><span class="line"></span><br><span class="line">endlocal</span><br></pre></td></tr></table></figure>
 
-<h1 id="私货时间"><a href="#私货时间" class="headerlink" title="私货时间"></a>私货时间</h1><p>说叫私货时间其实也没有那么私货，只是 <a target="_blank" rel="noopener" href="https://github.com/hihkm/DanmakuFactory">DanmakuFactory</a> 转换 sc 后生成的 ass 文件我不满意，出现后只有等其余 sc 将其顶出屏幕，期间会遮掉很大一部分屏幕，我写了一个<a target="_blank" rel="noopener" href="https://github.com/renmu123/ass-convert">脚本</a>支持修改 sc 弹幕的持续时间，使其减少对内容的影响。<br><del>如果这个<a target="_blank" rel="noopener" href="https://github.com/hihkm/DanmakuFactory/issues/25">issue</a> 修复可能就不需要我的脚本了</del></p>
+<h1 id="私货时间"><a href="#私货时间" class="headerlink" title="私货时间"></a>私货时间</h1><p>说叫私货时间其实也没有那么私货，只是 <a target="_blank" rel="noopener" href="https://github.com/hihkm/DanmakuFactory">DanmakuFactory</a> 转换 sc 后生成的 ass 文件我不满意，出现后只有等其余 sc 将其顶出屏幕，期间会遮掉很大一部分屏幕，我写了一个<a target="_blank" rel="noopener" href="https://github.com/renmu123/ass-convert">脚本</a>支持修改 sc 弹幕的持续时间，使其减少对内容的影响。<br><del>如果这个<a target="_blank" rel="noopener" href="https://github.com/hihkm/DanmakuFactory/issues/25">issue</a> 做完可能就不需要我的脚本了</del></p>
 <p>之后准备增加一些功能：</p>
 <ol>
 <li>自动嵌入某条弹幕，比如大屏红字<del>雪糕麻麻是我的</del></li>
 <li>增加 sc 的出现消失的过渡效果</li>
 </ol>
 <p>我们再修改一下自动化脚本，你需要下载对应平台的 cli 工具，并加到环境变量中</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">setlocal</span><br><span class="line">echo %cd%</span><br><span class="line">REM 获取文件的完整路径</span><br><span class="line">set &quot;FILE_PATH=%~1&quot;</span><br><span class="line"></span><br><span class="line">REM 获取文件的basename</span><br><span class="line">for %%i in (&quot;%FILE_PATH%&quot;) do set &quot;BASENAME=%%~ni&quot;</span><br><span class="line"></span><br><span class="line">DanmakuFactory.exe -o &quot;%BASENAME%.ass&quot; -i &quot;%FILE_PATH%&quot; --showmsgbox true -S 30 -O 150</span><br><span class="line">REM 增加了这一行</span><br><span class="line">ass-convert-win.exe -i &quot;%BASENAME%.ass&quot; -r</span><br><span class="line"></span><br><span class="line">pause</span><br><span class="line"></span><br><span class="line">endlocal</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">REM 将原始xml文件转换为ass</span><br><span class="line">@echo off</span><br><span class="line">setlocal</span><br><span class="line">echo %cd%</span><br><span class="line">REM 获取文件的完整路径</span><br><span class="line">set &quot;FILE_PATH=%~1&quot;</span><br><span class="line"></span><br><span class="line">REM 获取文件的basename</span><br><span class="line">for %%i in (&quot;%FILE_PATH%&quot;) do set &quot;BASENAME=%%~ni&quot;</span><br><span class="line"></span><br><span class="line">DanmakuFactory.exe -o &quot;%BASENAME%.ass&quot; -i &quot;%FILE_PATH%&quot; --showmsgbox true -S 30 -O 150</span><br><span class="line">ass-convert-win.exe -i &quot;%BASENAME%.ass&quot; -r</span><br><span class="line"></span><br><span class="line">pause</span><br><span class="line"></span><br><span class="line">endlocal</span><br></pre></td></tr></table></figure>
 
 <h1 id="压制工具"><a href="#压制工具" class="headerlink" title="压制工具"></a>压制工具</h1><p>万物视频压制大多基于<a target="_blank" rel="noopener" href="https://ffmpeg.org/download.html">ffmpeg</a>，我们也是用这个工具来实现视频字幕的硬编码，一行就可以解决了<br>我们来一个一个参数解析一下这个命令<del>我也是初学者</del><br><code>ffmpeg -i example.flv -vf &quot;subtitles=example.ass&quot; -c:v libx264 -c:a copy example.mp4</code></p>
 <ol>
@@ -284,7 +293,26 @@
 <p>如果你有老黄的显卡，也可以使用 cuda 来进行加速，下次再折腾吧。</p>
 <h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p>cpu 编码<br><img src="https://person-pic-1253385403.cos.ap-shanghai.myqcloud.com/img/Pasted%20image%2020230317105953.png" alt="cpu编码"></p>
 <p>核显编码<br><img src="https://person-pic-1253385403.cos.ap-shanghai.myqcloud.com/img/Pasted%20image%2020230317105958.png" alt="intel核显编码"></p>
-<h1 id="自动上传"><a href="#自动上传" class="headerlink" title="自动上传"></a>自动上传</h1>
+<h1 id="快速切带有弹幕的片段"><a href="#快速切带有弹幕的片段" class="headerlink" title="快速切带有弹幕的片段"></a>快速切带有弹幕的片段</h1><p>先说一下什么叫做快速切带有弹幕的片段：<br>如果你采用视频流和弹幕分别保存的流程下，正常你想切某个带有弹幕的视频。<br>你可能需要先将弹幕硬编码到视频中再进行剪辑，或者剪切完后移动弹幕轴，或者在可以渲染 ass 字幕的播放器中进行录制。<br>以上的几种方式有显得稍微有些繁琐，大大打击切片的积极性。</p>
+<p>我的方法没有那么繁琐的流程，只需要 3 步，而且只会在最后进行一次编码。</p>
+<p>首先需要下载找个<a target="_blank" rel="noopener" href="https://github.com/mifi/lossless-cut">lossless-cut</a>工具，之后所有的粗剪，以及切片相关的工作我都会使用这个工具来完成</p>
+<p>先说一下完成这个事情的思路：</p>
+<ol>
+<li>将转换后的 ass 和 mp4 文件封装成 mkv 格式</li>
+<li>利用 lossless-cut 来进行剪辑</li>
+<li>将剪辑后的 mkv 文件拆成 mp4 以及 ass 文件，再进行硬编码</li>
+</ol>
+<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p><strong>将正在录制的文件复制到一个新的文件夹再做接下来的处理，以防录制出现问题，别问我怎么知道的</strong><br>将转换后的 ass 和 mp4 文件封装成 mkv 格式。</p>
+<p>这一步很简单，直接用 ffmpeg 进行处理就行，这里给出我的处理脚本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">REM 将视频和ass字幕装到mkv容器中</span><br><span class="line"></span><br><span class="line">@echo off</span><br><span class="line">setlocal</span><br><span class="line">echo %cd%</span><br><span class="line">REM 获取文件的完整路径</span><br><span class="line">set &quot;FILE_PATH=%~1&quot;</span><br><span class="line"></span><br><span class="line">REM 获取文件的basename</span><br><span class="line">for %%i in (&quot;%FILE_PATH%&quot;) do set &quot;BASENAME=%%~ni&quot;</span><br><span class="line"></span><br><span class="line">REM 如果ass文件存在，不用进行额外处理了</span><br><span class="line">IF NOT EXIST %BASENAME%.ass (</span><br><span class="line">DanmakuFactory.exe -o &quot;%BASENAME%.ass&quot; -i &quot;%BASENAME%.xml&quot; --showmsgbox true -S 30 -O 150</span><br><span class="line">ass-convert-win.exe -i &quot;%BASENAME%.ass&quot; -r</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">ffmpeg -i %FILE_PATH% -i %BASENAME%.ass -map 0 -map 1 -c copy %BASENAME%.mkv</span><br><span class="line"></span><br><span class="line">pause</span><br><span class="line"></span><br><span class="line">endlocal</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>利用 lossless-cut 来进行剪辑。</p>
+<p>安装完毕软件后，只要将视频拖动至软件图片上，即可打开进行处理。<br>需要在设置中关闭关键帧剪辑。</p>
+<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>将剪辑后导出的 mkv 进行硬编码，这里我也给出我的处理脚本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">REM 将带有字幕的mkv文件进行硬编码</span><br><span class="line"></span><br><span class="line">@echo off</span><br><span class="line">setlocal</span><br><span class="line"></span><br><span class="line">REM 获取文件的完整路径</span><br><span class="line">set &quot;FILE_PATH=%~1&quot;</span><br><span class="line"></span><br><span class="line">for %%i in (&quot;%FILE_PATH%&quot;) do set &quot;BASENAME=%%~ni&quot;</span><br><span class="line"></span><br><span class="line">ffmpeg -i %FILE_PATH% -map 0:s:0 %BASENAME%_temp.ass</span><br><span class="line">ffmpeg -i %FILE_PATH% -c copy %BASENAME%_temp.mp4</span><br><span class="line">ffmpeg -i %BASENAME%_temp.mp4 -vf &quot;subtitles=%BASENAME%_temp.ass&quot; -c:v libx264 -c:a copy &quot;%BASENAME%.mp4&quot;</span><br><span class="line"></span><br><span class="line">del %BASENAME%_temp.ass</span><br><span class="line">del %BASENAME%_temp.mp4</span><br><span class="line"></span><br><span class="line">pause</span><br><span class="line"></span><br><span class="line">endlocal</span><br></pre></td></tr></table></figure>
+
+<h1 id="做字幕"><a href="#做字幕" class="headerlink" title="做字幕"></a>做字幕</h1><h1 id="自动上传"><a href="#自动上传" class="headerlink" title="自动上传"></a>自动上传</h1><p>待施工</p>
+
     </div>
 
     
@@ -378,7 +406,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%95%E5%B1%8F%E5%B7%A5%E5%85%B7"><span class="nav-number">2.</span> <span class="nav-text">录屏工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7"><span class="nav-number">3.</span> <span class="nav-text">转换工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%81%E8%B4%A7%E6%97%B6%E9%97%B4"><span class="nav-number">4.</span> <span class="nav-text">私货时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%8B%E5%88%B6%E5%B7%A5%E5%85%B7"><span class="nav-number">5.</span> <span class="nav-text">压制工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A2%9E%E5%BC%BA"><span class="nav-number">5.1.</span> <span class="nav-text">增强</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%83%BD"><span class="nav-number">5.1.1.</span> <span class="nav-text">性能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0"><span class="nav-number">6.</span> <span class="nav-text">自动上传</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%95%E5%B1%8F%E5%B7%A5%E5%85%B7"><span class="nav-number">2.</span> <span class="nav-text">录屏工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7"><span class="nav-number">3.</span> <span class="nav-text">转换工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%81%E8%B4%A7%E6%97%B6%E9%97%B4"><span class="nav-number">4.</span> <span class="nav-text">私货时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%8B%E5%88%B6%E5%B7%A5%E5%85%B7"><span class="nav-number">5.</span> <span class="nav-text">压制工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A2%9E%E5%BC%BA"><span class="nav-number">5.1.</span> <span class="nav-text">增强</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%83%BD"><span class="nav-number">5.1.1.</span> <span class="nav-text">性能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%88%87%E5%B8%A6%E6%9C%89%E5%BC%B9%E5%B9%95%E7%9A%84%E7%89%87%E6%AE%B5"><span class="nav-number">6.</span> <span class="nav-text">快速切带有弹幕的片段</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5"><span class="nav-number">6.1.</span> <span class="nav-text">第一步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5"><span class="nav-number">6.2.</span> <span class="nav-text">第二步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5"><span class="nav-number">6.3.</span> <span class="nav-text">第三步</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%9A%E5%AD%97%E5%B9%95"><span class="nav-number">7.</span> <span class="nav-text">做字幕</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0"><span class="nav-number">8.</span> <span class="nav-text">自动上传</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
